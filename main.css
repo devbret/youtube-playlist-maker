@@ -1,0 +1,59 @@
+* {
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+button {
+    width: 50%;
+    padding: 1px 2px;
+    border: 1px solid black;
+}
+.frame {
+    width: 700px;
+    height: 315px;
+    border: 1px solid black;
+    margin: 50px auto;
+    display: flex;
+}
+.live {
+    width: 80%;
+    height: 100%;
+    border: 1px solid black;
+}
+.playlist {
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.controls {
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+}
+.display-playlist {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.main-input {
+    width: 100%;
+    border: 1px solid black;
+    position: absolute;
+}
+.button-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.button-bar:first-of-type {
+    margin-top: 17px;
+}
+.main-button:hover {
+    background-color: gold;
+    cursor: pointer;
+}
