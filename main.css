@@ -16,11 +16,13 @@ button {
     border: 1px solid black;
     margin: 50px auto;
     display: flex;
+    background-color: black;
 }
 .live {
     width: 80%;
     height: 100%;
     border: 1px solid black;
+    background-color: white;
 }
 .playlist {
     width: 20%;
@@ -28,16 +30,36 @@ button {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    background-color: white;
+}
+.playlistItem {
+    width: 100%;
+    height: 77px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.playlistItem:hover {
+    cursor: pointer;
 }
 .controls {
     width: 100%;
     border: 1px solid black;
+    border-right: none;
     position: relative;
+    background-color: white;
 }
 .display-playlist {
-    width: 100%;
-    height: 100%;
+    width: 155px;
+    height: 237px;
     border: 1px solid black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    bottom: 0px;
 }
 .main-input {
     width: 100%;
