@@ -135,7 +135,6 @@ function main() {
     });
     prev.addEventListener(`click`, function(){
         for (let i = 1; i < currentState.length; i++) {
-            console.log([currentState[i].isActive,currentState[i].id]);
             const items = document.querySelectorAll(`.playlistItem`);
             if (currentState[i].isActive === `1`) {
                 displayURL(currentState[i - 1].id);
@@ -152,23 +151,19 @@ function main() {
         }
     });
     next.addEventListener(`click`, function(){
+        let switched = 0;
         for (let i = 0; i < (currentState.length - 1); i++) {
-            console.log([currentState[i].isActive,currentState[i].id]);
             const items = document.querySelectorAll(`.playlistItem`);
-            if (currentState[i].isActive === `1`) {
+            if (currentState[i].isActive === `1` && switched < 1) {
+                ++switched;
                 displayURL(currentState[i + 1].id);
-                for (let q = currentState.length - 1; q > 0; q--) {
-                    if (q === (i + 1)) {
-                        console.log(`Hello, World!`);
-                        currentState[q].isActive = `1`;
-                        items[q].style.border = `1px solid aqua`;
-                    } else {
-                        currentState[q].isActive = `0`;
-                        items[q].style.border = `1px solid black`;
-                    }
-                }
+                currentState[i].isActive = `0`;
+                currentState[i + 1].isActive = `1`;
+                items[i].style.border = `1px solid black`;
+                items[i + 1].style.border = `1px solid aqua`;
             }
         }
+        switched = 0;
     });
 }
 main();
