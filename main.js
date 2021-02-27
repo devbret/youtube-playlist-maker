@@ -80,6 +80,26 @@ function main() {
             this.style.border = `1px solid aqua`;
         });
         displayList.appendChild(playlistItem);
+        //Creating delete buttons for each playlist item.
+        const deleteItem = document.createElement(`p`);
+        deleteItem.innerText = `X`;
+        deleteItem.classList.add(`deleteItem`);
+        playlistItem.appendChild(deleteItem);
+        deleteItem.addEventListener(`click`, function(){
+            // const tempParentNode = playlistItem.parentNode;
+            // tempParentNode.removeChild(playlistItem);
+            console.log(playlistItem.id);
+            const tempState = currentState.reduce(function(acc,item,index){
+                if (Number(playlistItem.id) !== index) {
+                    acc.push(item);
+                }
+                return acc;
+            },[]);
+            //How to remove and replace all items within the playlist display?
+            for (let i = 0; i < tempState.length; i++) {
+                addToPlaylist(tempState[i].id);
+            }
+        });
     }
     function displayURL(z) {
         live.innerHTML = `<iframe width="560" height="313" src="https://www.youtube.com/embed/${z}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
