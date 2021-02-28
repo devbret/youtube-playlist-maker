@@ -95,10 +95,18 @@ function main() {
                 }
                 return acc;
             },[]);
+            sortingURLs(tempState.reduce(function(accZ,itemZ){
+                accZ.push(`https://www.youtube.com/watch?v=${itemZ.id}`);
+                return accZ;
+            },[]).join(`,`));
+            cleanUp();
             //How to remove and replace all items within the playlist display?
+            //The problems I'm facing with this code center around the currentState variable.
             for (let i = 0; i < tempState.length; i++) {
                 addToPlaylist(tempState[i].id);
             }
+            //displayURL(tempState[0].id);
+            //document.querySelectorAll(`.playlistItem`)[0].style.border = `1px solid aqua`;
         });
     }
     function displayURL(z) {
